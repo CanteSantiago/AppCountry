@@ -5,14 +5,14 @@ import { AboutPageComponent } from './shared/pages/aboutPage/aboutPage.component
 
 
 const routes: Routes = [{
-path: 'home',
+path: '',
 component: HomePageComponent
 },{
   path: 'about',
   component: AboutPageComponent
   },{
     path: '**',
-   redirectTo:'home'
+   redirectTo:''
     }
 
 
