@@ -17,7 +17,7 @@ component: HomePageComponent
     component: ContactPageComponent
   },{
     path: 'countries',
-    component: ContactPageComponent
+    loadChildren: () => import('./countries/countries.module').then( m => m.CountriesModule)
   },
 {
     path: '**',

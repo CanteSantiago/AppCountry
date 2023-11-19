@@ -10,7 +10,7 @@ const Routes:Routes=[
 path:'by-capital',
 component:ByCapitalPageComponent
 },{
-  path:'by-county',
+  path:'by-country',
   component:ByCountryPageComponent
   },{
     path:'by-region',
