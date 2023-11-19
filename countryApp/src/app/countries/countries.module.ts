@@ -7,13 +7,15 @@ import { ByRegionPageComponent } from './pages/byRegionPage/byRegionPage.compone
 import { CountryPageComponent } from './pages/countryPage/countryPage.component';
 import { CountriesRoutingModule } from './countries-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { CountryTableComponent } from './components/country-table/country-table.component';
 
 @NgModule({
   declarations: [
     ByCapitalPageComponent,
     ByCountryPageComponent,
     ByRegionPageComponent,
-    CountryPageComponent
+    CountryPageComponent,
+    CountryTableComponent
   ],
   imports: [
     CommonModule,
