@@ -9,7 +9,7 @@ import { Region } from '../../interfaces/region.type';
   selector: 'app-byRegionPage',
   templateUrl: './byRegionPage.component.html',
 })
-export class ByRegionPageComponent {
+export class ByRegionPageComponent implements OnInit {
 
   public countries: Country[] = [];
   public regions: Region[]= ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
@@ -17,6 +17,11 @@ export class ByRegionPageComponent {
 
 
   constructor( private CountriesService: CountricesService ) {}
+  ngOnInit(): void {
+    this.countries = this.CountriesService.cacheStore.byRegion.countries;
+    this.selectedRegion = this.CountriesService.cacheStore.byRegion.region;
+
+  }
 
   searchByRegion( region: Region ):void  {
 
