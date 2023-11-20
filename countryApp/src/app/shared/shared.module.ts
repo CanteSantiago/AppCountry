@@ -6,6 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { ContactPageComponent } from './pages/contactPage/contactPage.component';
 import { SearchBoxComponent } from './components/searchBox/searchBox.component';
+import { LoadingSpinerComponent } from './components/loadingSpiner/loadingSpiner.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ HomePageComponent,
 AboutPageComponent,
 SidebarComponent,
 ContactPageComponent,
-SearchBoxComponent
+SearchBoxComponent,
+LoadingSpinerComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ HomePageComponent,
 AboutPageComponent,
 SidebarComponent,
 ContactPageComponent,
-SearchBoxComponent
+SearchBoxComponent,
+LoadingSpinerComponent
 
   ],
 
