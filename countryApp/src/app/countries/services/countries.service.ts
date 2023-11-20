@@ -19,7 +19,27 @@ export class  CountricesService {
     // tap( countries =>console.log('Paso por el tap2', countries)),
     catchError( () => of([]) )
     );
+}
 
-  }
+
+searchCountry( term: string ): Observable<Country[]> {
+
+  const url = `${ this.apiUrl }/name/${ term }`;
+  return this.http.get<Country[]>( url )
+    .pipe(
+      catchError( () => of([]) )
+    );
+}
+
+searchRegion( region: string ): Observable<Country[]> {
+
+  const url = `${ this.apiUrl }/region/${ region }`;
+  return this.http.get<Country[]>( url )
+    .pipe(
+      catchError( () => of([]) )
+    );
+}
+
+
 
 }
