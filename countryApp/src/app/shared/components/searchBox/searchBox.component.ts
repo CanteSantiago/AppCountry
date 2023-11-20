@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'shared-search-box',
   templateUrl: './searchBox.component.html',
 })
-export class SearchBoxComponent  implements OnInit{
+export class SearchBoxComponent  implements OnInit, OnDestroy{
+
 
 
 
@@ -23,7 +24,7 @@ public placeholder:string='';
 
 
 ngOnInit(): void {
-  this.debouncer
+  this.debouncerSuscription = this.debouncer
   .pipe(
     debounceTime(300)
   )
@@ -32,6 +33,9 @@ ngOnInit(): void {
   })
 }
 
+ngOnDestroy(): void {
+    this.debouncerSuscription?.unsubscribe();
+}
 
   emitValue( value: string ):void {
     this.onValue.emit( value );
