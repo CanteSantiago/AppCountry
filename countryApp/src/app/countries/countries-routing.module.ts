@@ -16,7 +16,7 @@ component:ByCapitalPageComponent
     path:'by-region',
     component:ByRegionPageComponent
     },{
-      path:'by/id',
+      path:'by/:id',
       component:CountryPageComponent
       },
       {
