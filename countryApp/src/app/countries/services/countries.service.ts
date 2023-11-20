@@ -1,7 +1,7 @@
 import { Region } from './../interfaces/region.type';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, delay, map, of } from 'rxjs';
+import { Observable, catchError,  map, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country';
 import { CacheStore } from '../interfaces/cache-store.interface';
 
@@ -23,7 +23,7 @@ private getCountriesRequest(url: string):Observable<Country[]>{
   return this.http.get<Country[]>(url)
   .pipe(
     catchError( () => of([]) ),
-    delay(2000),
+
   );
 }
 
@@ -39,7 +39,11 @@ searchCountrByAlphaCode(code:string):Observable<Country | null>{
   searchCapital( term: string ):Observable<Country[]> {
 
     const url = `${ this.apiUrl }/capital/${ term }`;
-   return this.getCountriesRequest(url);
+   return this.getCountriesRequest(url)
+   .pipe(
+    tap( countries => this.cacheStore.byCapital = { term, countries }),
+
+   );
     // tap( countries =>console.log('Paso por el tap1', countries)),
     // map(countries => []),
     // tap( countries =>console.log('Paso por el tap2', countries)),
